@@ -6,11 +6,11 @@ const App = props =>
   <Router>
     <div>
       <Route
-        path="/:page?-:subpage"
+        path="/:a(\d{2}-\d{2}-\d{4}):b(\.[a-z]+)"
         render={({ match }) => (
           <h1>
-            PAGE: {match.params.page || 'Home'} <br/>
-            SUBPAGE: {match.params.subpage}
+            paramA: {match.params.a} <br/>
+            paramB: {match.params.b}
           </h1>
         )}
       />
