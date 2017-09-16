@@ -6,6 +6,14 @@ import {
   Link
 } from 'react-router-dom';
 
+const Links = () => (
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to={{pathname: '/about'}}>About</Link>
+    <Link replace to={{pathname: '/contact'}}>Contact</Link>
+  </nav>
+)
+
 const Home = (props) => {
   console.log(props)
   return <h1>Home</h1>
@@ -14,12 +22,10 @@ const Home = (props) => {
 const App = (props) => (
   <Router>
     <div>
+      <Links />
       <Route exact path="/" component={Home} />
-      {/*<Route path="/about" render={() => <h1>About</h1>} />*/}
-      <Route
-        path="/about"
-        children={({match}) => match && <h1>About</h1>}
-      />
+      <Route path="/about" render={() => <h1>About</h1>} />
+      <Route path="/contact" render={() => <h1>Contact</h1>} />
     </div>
   </Router>
 );
